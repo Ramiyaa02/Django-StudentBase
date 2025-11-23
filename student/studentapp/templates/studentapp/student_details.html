@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Profile</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .profile-container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .profile-container h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .info-row {
+            text-align: left;
+            margin: 10px 0;
+            font-size: 18px;
+            padding: 10px;
+            background: #f8f9fc;
+            border-radius: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            background: #3498db;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        .back-btn:hover {
+            background: #2c81ba;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <h2>Student Profile</h2>
+
+    <div class="info-row"><strong>ID:</strong> {{ student.student_id }}</div>
+    <div class="info-row"><strong>Name:</strong> {{ student.name }}</div>
+    <div class="info-row"><strong>Department:</strong> {{ student.dept }}</div>
+    <div class="info-row"><strong>Marks:</strong> {{ student.marks }}</div>
+    <div class="info-row"><strong>Grade:</strong> {{ student.grade }}</div>
+
+    <a href="{% url 'home' %}" class="btn back-btn">← Back</a>
+
+    <a href="{% url 'delete_student' student.id %}"
+       class="btn delete-btn"
+       onclick="return confirm('Are you sure you want to delete this student?');">
+       Delete Student
+    </a>
+
+</div>
+
+</body>
+</html>

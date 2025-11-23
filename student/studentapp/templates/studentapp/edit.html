@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="{% static 'studentapp/style.css' %}">
+</head>
+
+<body>
+
+<h2 class="page-title">Edit Student</h2>
+
+<div class="form-container">
+
+    <form method="POST" action="{% url 'update_student' student.id %}">
+        {% csrf_token %}
+
+        <label>Student ID</label>
+        <input type="text" name="student_id" value="{{ student.student_id }}" required>
+
+        <label>Name</label>
+        <input type="text" name="name" value="{{ student.name }}" required>
+
+        <label>Department</label>
+        <input type="text" name="dept" value="{{ student.dept }}" required>
+
+        <label>Marks</label>
+        <input type="number" name="marks" value="{{ student.marks }}" required>
+
+        <label>Grade</label>
+        <input type="text" name="grade" value="{{ student.grade }}" required>
+
+        <button type="submit" class="btn">Update</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+</div>
+
+</body>
+</html>

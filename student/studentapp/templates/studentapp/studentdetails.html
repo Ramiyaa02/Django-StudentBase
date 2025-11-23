@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h1>Register New Student</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    ID: <input type="number" name="student_id" required><br><br>
+    Name: <input type="text" name="name" required><br><br>
+    Dept: <input type="text" name="dept" required><br><br>
+    Marks: <input type="number" name="marks" required><br><br>
+    Grade: <input type="text" name="grade" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<h2>Registered Students</h2>
+<table border="1">
+<tr>
+    <th>ID</th><th>Name</th><th>Dept</th><th>Marks</th><th>Grade</th>
+</tr>
+
+{% for s in students %}
+<tr>
+    <td>{{ s.student_id }}</td>
+    <td>{{ s.name }}</td>
+    <td>{{ s.dept }}</td>
+    <td>{{ s.marks }}</td>
+    <td>{{ s.grade }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+<a href="{% url 'home' %}">Back to Home</a>
+
+</body>
+</html>

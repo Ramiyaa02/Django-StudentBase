@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ student.name }} - Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'studentapp/style.css' %}">
+</head>
+
+<body>
+
+<h1>Student Profile</h1>
+
+<div class="profile-box">
+    <h2>{{ student.name }}</h2>
+    <p><strong>ID:</strong> {{ student.student_id }}</p>
+    <p><strong>Department:</strong> {{ student.dept }}</p>
+    <p><strong>Marks:</strong> {{ student.marks }}</p>
+    <p><strong>Grade:</strong> {{ student.grade }}</p>
+</div>
+
+<br>
+<a href="{% url 'home' %}">Back to Home</a>
+
+</body>
+</html>

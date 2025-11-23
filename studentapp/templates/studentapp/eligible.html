@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eligible Students</title>
+	<link rel="stylesheet" href="{% static 'studentapp/style.css' %}">
+
+</head>
+<body>
+
+<h1>Students Eligible for Placements (Grade A or A+)</h1>
+
+<table border="1">
+<tr>
+    <th>ID</th><th>Name</th><th>Dept</th><th>Marks</th><th>Grade</th>
+</tr>
+
+{% for e in eligible %}
+<tr>
+    <td>{{ e.student_id }}</td>
+    <td>{{ e.name }}</td>
+    <td>{{ e.dept }}</td>
+    <td>{{ e.marks }}</td>
+    <td>{{ e.grade }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+<a href="{% url 'home' %}">Back to Home</a>
+
+</body>
+</html>
